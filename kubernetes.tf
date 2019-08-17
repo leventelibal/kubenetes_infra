@@ -1,33 +1,3 @@
-locals = {
-  bastion_autoscaling_group_ids     = ["${aws_autoscaling_group.bastions-kubelevent-com.id}"]
-  bastion_security_group_ids        = ["${aws_security_group.bastion-kubelevent-com.id}"]
-  bastions_role_arn                 = "${aws_iam_role.bastions-kubelevent-com.arn}"
-  bastions_role_name                = "${aws_iam_role.bastions-kubelevent-com.name}"
-  cluster_name                      = "kubelevent.com"
-  master_autoscaling_group_ids      = ["${aws_autoscaling_group.master-us-west-2a-masters-kubelevent-com.id}", "${aws_autoscaling_group.master-us-west-2b-masters-kubelevent-com.id}", "${aws_autoscaling_group.master-us-west-2c-masters-kubelevent-com.id}"]
-  master_security_group_ids         = ["${aws_security_group.masters-kubelevent-com.id}"]
-  masters_role_arn                  = "${aws_iam_role.masters-kubelevent-com.arn}"
-  masters_role_name                 = "${aws_iam_role.masters-kubelevent-com.name}"
-  node_autoscaling_group_ids        = ["${aws_autoscaling_group.nodes-kubelevent-com.id}"]
-  node_security_group_ids           = ["${aws_security_group.nodes-kubelevent-com.id}"]
-  node_subnet_ids                   = ["${aws_subnet.us-west-2a-kubelevent-com.id}", "${aws_subnet.us-west-2b-kubelevent-com.id}", "${aws_subnet.us-west-2c-kubelevent-com.id}"]
-  nodes_role_arn                    = "${aws_iam_role.nodes-kubelevent-com.arn}"
-  nodes_role_name                   = "${aws_iam_role.nodes-kubelevent-com.name}"
-  region                            = "us-west-2"
-  route_table_private-us-west-2a_id = "${aws_route_table.private-us-west-2a-kubelevent-com.id}"
-  route_table_private-us-west-2b_id = "${aws_route_table.private-us-west-2b-kubelevent-com.id}"
-  route_table_private-us-west-2c_id = "${aws_route_table.private-us-west-2c-kubelevent-com.id}"
-  route_table_public_id             = "${aws_route_table.kubelevent-com.id}"
-  subnet_us-west-2a_id              = "${aws_subnet.us-west-2a-kubelevent-com.id}"
-  subnet_us-west-2b_id              = "${aws_subnet.us-west-2b-kubelevent-com.id}"
-  subnet_us-west-2c_id              = "${aws_subnet.us-west-2c-kubelevent-com.id}"
-  subnet_utility-us-west-2a_id      = "${aws_subnet.utility-us-west-2a-kubelevent-com.id}"
-  subnet_utility-us-west-2b_id      = "${aws_subnet.utility-us-west-2b-kubelevent-com.id}"
-  subnet_utility-us-west-2c_id      = "${aws_subnet.utility-us-west-2c-kubelevent-com.id}"
-  vpc_cidr_block                    = "${aws_vpc.kubelevent-com.cidr_block}"
-  vpc_id                            = "${aws_vpc.kubelevent-com.id}"
-}
-
 output "bastion_autoscaling_group_ids" {
   value = ["${aws_autoscaling_group.bastions-kubelevent-com.id}"]
 }
