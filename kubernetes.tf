@@ -603,7 +603,7 @@ resource "aws_launch_configuration" "bastions-kubelevent-com" {
 resource "aws_launch_configuration" "master-us-west-2a-masters-kubelevent-com" {
   name_prefix                 = "master-us-west-2a.masters.kubelevent.com-"
   image_id                    = "ami-0d8618ba6320df983"
-  instance_type               = "t2.micro"
+  instance_type               = "m4.large"
   key_name                    = "${aws_key_pair.kubernetes-kubelevent-com-7a1936aa436f43e2b139d747cf113cba.id}"
   iam_instance_profile        = "${aws_iam_instance_profile.masters-kubelevent-com.id}"
   security_groups             = ["${aws_security_group.masters-kubelevent-com.id}"]
@@ -626,7 +626,7 @@ resource "aws_launch_configuration" "master-us-west-2a-masters-kubelevent-com" {
 resource "aws_launch_configuration" "master-us-west-2b-masters-kubelevent-com" {
   name_prefix                 = "master-us-west-2b.masters.kubelevent.com-"
   image_id                    = "ami-0d8618ba6320df983"
-  instance_type               = "t2.micro"
+  instance_type               = "m4.large"
   key_name                    = "${aws_key_pair.kubernetes-kubelevent-com-7a1936aa436f43e2b139d747cf113cba.id}"
   iam_instance_profile        = "${aws_iam_instance_profile.masters-kubelevent-com.id}"
   security_groups             = ["${aws_security_group.masters-kubelevent-com.id}"]
@@ -649,7 +649,7 @@ resource "aws_launch_configuration" "master-us-west-2b-masters-kubelevent-com" {
 resource "aws_launch_configuration" "master-us-west-2c-masters-kubelevent-com" {
   name_prefix                 = "master-us-west-2c.masters.kubelevent.com-"
   image_id                    = "ami-0d8618ba6320df983"
-  instance_type               = "t2.micro"
+  instance_type               = "m4.large"
   key_name                    = "${aws_key_pair.kubernetes-kubelevent-com-7a1936aa436f43e2b139d747cf113cba.id}"
   iam_instance_profile        = "${aws_iam_instance_profile.masters-kubelevent-com.id}"
   security_groups             = ["${aws_security_group.masters-kubelevent-com.id}"]
@@ -672,7 +672,7 @@ resource "aws_launch_configuration" "master-us-west-2c-masters-kubelevent-com" {
 resource "aws_launch_configuration" "nodes-kubelevent-com" {
   name_prefix                 = "nodes.kubelevent.com-"
   image_id                    = "ami-0d8618ba6320df983"
-  instance_type               = "t2.micro"
+  instance_type               = "m4.large"
   key_name                    = "${aws_key_pair.kubernetes-kubelevent-com-7a1936aa436f43e2b139d747cf113cba.id}"
   iam_instance_profile        = "${aws_iam_instance_profile.nodes-kubelevent-com.id}"
   security_groups             = ["${aws_security_group.nodes-kubelevent-com.id}"]
@@ -759,7 +759,7 @@ resource "aws_route53_record" "api-kubelevent-com" {
     evaluate_target_health = false
   }
 
-  zone_id = "/hostedzone/Z3J8CUW0AGL5SC"
+  zone_id = "/hostedzone/Z10P8P3T73BLI6"
 }
 
 resource "aws_route53_record" "bastion-kubelevent-com" {
@@ -772,11 +772,11 @@ resource "aws_route53_record" "bastion-kubelevent-com" {
     evaluate_target_health = false
   }
 
-  zone_id = "/hostedzone/Z3J8CUW0AGL5SC"
+  zone_id = "/hostedzone/Z10P8P3T73BLI6"
 }
 
-resource "aws_route53_zone_association" "Z3J8CUW0AGL5SC" {
-  zone_id = "/hostedzone/Z3J8CUW0AGL5SC"
+resource "aws_route53_zone_association" "Z10P8P3T73BLI6" {
+  zone_id = "/hostedzone/Z10P8P3T73BLI6"
   vpc_id  = "${aws_vpc.kubelevent-com.id}"
 }
 
