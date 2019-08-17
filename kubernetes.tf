@@ -1,23 +1,3 @@
-resource "aws_autoscaling_attachment" "bastions-kubelevent-com" {
-  elb                    = "${aws_elb.bastion-kubelevent-com.id}"
-  autoscaling_group_name = "${aws_autoscaling_group.bastions-kubelevent-com.id}"
-}
-
-resource "aws_autoscaling_attachment" "master-us-west-2a-masters-kubelevent-com" {
-  elb                    = "${aws_elb.api-kubelevent-com.id}"
-  autoscaling_group_name = "${aws_autoscaling_group.master-us-west-2a-masters-kubelevent-com.id}"
-}
-
-resource "aws_autoscaling_attachment" "master-us-west-2b-masters-kubelevent-com" {
-  elb                    = "${aws_elb.api-kubelevent-com.id}"
-  autoscaling_group_name = "${aws_autoscaling_group.master-us-west-2b-masters-kubelevent-com.id}"
-}
-
-resource "aws_autoscaling_attachment" "master-us-west-2c-masters-kubelevent-com" {
-  elb                    = "${aws_elb.api-kubelevent-com.id}"
-  autoscaling_group_name = "${aws_autoscaling_group.master-us-west-2c-masters-kubelevent-com.id}"
-}
-
 resource "aws_autoscaling_group" "bastions-kubelevent-com" {
   name                 = "bastions.kubelevent.com"
   launch_configuration = "${aws_launch_configuration.bastions-kubelevent-com.id}"
@@ -1053,8 +1033,4 @@ resource "aws_vpc_dhcp_options" "kubelevent-com" {
 resource "aws_vpc_dhcp_options_association" "kubelevent-com" {
   vpc_id          = "${aws_vpc.kubelevent-com.id}"
   dhcp_options_id = "${aws_vpc_dhcp_options.kubelevent-com.id}"
-}
-
-terraform = {
-  required_version = ">= 0.9.3"
 }
