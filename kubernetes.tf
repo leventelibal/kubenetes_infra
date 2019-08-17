@@ -1,7 +1,3 @@
-provider "aws" {
-  region = "us-west-2"
-}
-
 resource "aws_autoscaling_attachment" "bastions-kubelevent-com" {
   elb                    = "${aws_elb.bastion-kubelevent-com.id}"
   autoscaling_group_name = "${aws_autoscaling_group.bastions-kubelevent-com.id}"
